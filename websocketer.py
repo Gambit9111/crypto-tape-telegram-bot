@@ -29,11 +29,8 @@ class WebSocketer:
     # text = f"Subscription for CryptoJab 🚀🚀🚀: {product['name']}\n" \
     #        f"Price: {product['price']} {product['currency']}\n"
             # string = f"""{side} - {timestamp} - {price_bold}$ - {qty}x - {side}""",
-            string = f"{side} {side} {side} {side} {side} {side} {side}\n" \
-                     f"{timestamp} \n" \
-                     f"\n" \
-                     f"{price_bold} $ \n" \
-                     f"{qty} qty. \n" \
+            string = f"{side} {timestamp}\n" \
+                     f"{qty} @ {price_bold}$"
                 
             # print(string)
             bot.send_message(self.user_id, string)
