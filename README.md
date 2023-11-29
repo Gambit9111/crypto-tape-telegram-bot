@@ -6,7 +6,7 @@ This project is a Python script that uses the pyTelegramBotAPI and websocket lib
 
 To install the necessary dependencies, you can use pip:
 
-    pip install pyTelegramBotAPI websocket-client pytz
+    pip install pyTelegramBotAPI python-dotenv pytz websocket-client
 
 You will also need to create a Telegram bot and get its API token. You can do this by talking to the BotFather on Telegram.
 Usage
