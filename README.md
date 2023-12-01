@@ -15,6 +15,7 @@ Before running the script, you need to set up a few environment variables:
 
     USER_ID: The ID of the Telegram user to send the messages to.
     TRADED_QUANTITY: The minimum quantity of a trade to trigger a message.
+    LARGE_TRADED_QUANTITY: quantity that will flag a message with aditional emoji
     SYMBOL: The symbol of the cryptocurrency to track.
     TELEGRAM_BOT_TOKEN: The API token of your Telegram bot.
 
@@ -22,7 +23,7 @@ You can set these environment variables in a .env file in the root of your proje
 
 To run the script, use the following command:
 
-    python main.py
+    python -m bot
 
 The script will start streaming trade data from Binance and send a message to the specified Telegram user whenever a trade with a quantity greater than TRADED_QUANTITY is made.
 
