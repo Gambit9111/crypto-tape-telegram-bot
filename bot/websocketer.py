@@ -1,4 +1,4 @@
-from config import USER_ID, TRADED_QUANTITY, SYMBOL, bot
+from .config import USER_ID, TRADED_QUANTITY, LARGE_TRADED_QUANTITY, SYMBOL, bot
 import websocket
 import json
 from datetime import datetime, timezone
@@ -11,6 +11,7 @@ class WebSocketer:
     def __init__(self):
         self.user_id = USER_ID
         self.traded_quantity = TRADED_QUANTITY
+        self.large_traded_quantity = LARGE_TRADED_QUANTITY
         self.symbol = SYMBOL
         
     def on_message(self, ws, message):
@@ -24,13 +25,12 @@ class WebSocketer:
         price_bold = formatting.hbold(price)
         qty = "{:.2f}".format(float(trade['q']))
         side = "🟥" if bool(trade['m']) == True else "🟩"
+        flag = "🚀" if float(qty) >= self.large_traded_quantity else ""
         
-        if float(qty) > self.traded_quantity:
-    # text = f"Subscription for CryptoJab 🚀🚀🚀: {product['name']}\n" \
-    #        f"Price: {product['price']} {product['currency']}\n"
-            # string = f"""{side} - {timestamp} - {price_bold}$ - {qty}x - {side}""",
-            string = f"{side} {timestamp}\n" \
-                     f"{qty} @ {price_bold}$"
+        if float(qty) >= self.traded_quantity:
+            
+            string = f"{flag} {side} {qty} @ {price_bold}$ - " \
+                     f"⏱ {timestamp}"
                 
             # print(string)
             bot.send_message(self.user_id, string)
