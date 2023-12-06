@@ -1,6 +1,6 @@
 # crypto-tape-telegram-bot
 
-This project is a Python script that uses the pyTelegramBotAPI and websocket libraries to stream trade data from Binance and send it to a Telegram bot. The trade data includes the symbol, timestamp, price, and quantity of trades. The script is designed to send a message to a Telegram bot whenever the quantity of a trade is greater than a specified threshold.
+This project is a Python script that uses the pyTelegramBotAPI and websocket libraries to stream trade data from Binance and send it to a Telegram bot. The trade data includes the symbol, timestamp, price, and quantity of trades. The script is designed to send a message to a Telegram bot whenever the quantity of a trade is greater than a specified threshold. The bot will also save the trades to database.
 
 # Installation
 
@@ -18,6 +18,7 @@ Before running the script, you need to set up a few environment variables:
     LARGE_TRADED_QUANTITY: quantity that will flag a message with aditional emoji
     SYMBOL: The symbol of the cryptocurrency to track.
     TELEGRAM_BOT_TOKEN: The API token of your Telegram bot.
+    POSTGRES_URL: 
 
 You can set these environment variables in a .env file in the root of your project.
 
